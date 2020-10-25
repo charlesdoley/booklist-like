@@ -127,10 +127,13 @@ function getNewBooks(event) {
  * @return function 
  */
 function delay(fn, ms) {
-    let timer = 0
-    return function (...args) {
+    let timer;
+    return function () {
+        let context = this, args = arguments;
         clearTimeout(timer)
-        timer = setTimeout(fn.bind(this, ...args), ms || 0)
+        timer = setTimeout(() => {
+            fn.apply(context, arguments)
+        }, ms)
     }
 }
 
@@ -138,9 +141,10 @@ function delay(fn, ms) {
  * @desc takes the key entered on keyup event and calls the getnewbooks function with delay of 500
  * @param object $event - event created from every text input
  */
-function getNewBookFromEntry(event) {
-    delay(getNewBooks(event), 500)
-}
+// function getNewBookFromEntry(event) {
+//     delay(getNewBooks(event), 500)
+// }
+const getNewBookFromEntry = delay(getNewBooks, 500)
 
 /**
  * @desc set books fetched and creating book cards dynamically and also adding event listeners to the favorite button
