@@ -15,19 +15,22 @@
             <img src="./images/logo.svg" class="" alt="logo image" />
             <input class="booksContainer__input" onkeyup="getNewBookFromEntry(event)" type="text" placeholder="Enter a bookname. For ex: Java.">
         </div>
+        <span class="wishListRoute">
+          <img src="./images/wishlist1.png" />
+        </span>
         <div class="booksListContainer">
           <p class="bookCount">Found <span id="bookCount"></span> Items</p>
           <ul  class="booksContainer__list"  id="booksContainer__list">
           </ul>
         </div>
-        <div class="booksContainer__fav__header">My Reading Wishlist (<span id="currentFavs">0</span>)</div>
+        <span class="booksContainer__fav__header">My Reading Wishlist (<span id="currentFavs">0</span>)</span>
         <ul class="booksContainer__fav__list" id="booksContainer__fav__list">
         </ul>
        
     </div>
-    <footer>
+    <!-- <footer>
       Made on Vanilla JS and NodeJS
-    </footer>
+    </footer> -->
     <script src="./scripts/booksFetching.js"></script>
 </body>
 </html>
